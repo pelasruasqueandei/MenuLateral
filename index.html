@@ -42,6 +42,30 @@
 		<script type="text/javascript" src="js/bootstrap.js"></script>
         <!-- Script que aplica os padrões --> 
 		<script type="text/javascript" src="js/default.js"></script>
+        <!-- importa o objeto perfil -->
+        <script type="text/javascript" src="js/perfil.js"></script>
+        <!-- Remover isso, apenas use para testes -->
+        <script type="text/javascript">
+            function storePerfil(){
+                var nome = $("#nome").val();
+                var email = $("#email").val();
+                var perfil = new Perfil();
+                perfil.setNome(nome);
+                perfil.setEmail(email);
+                perfil.login();
+            }
+            function getPerfil(){
+                var perfil = new Perfil();
+                perfil = perfil.getLogged();
+                if(perfil != null){
+                    console.log("Nome: "+perfil.getNome());
+                    console.log("E-mail: "+perfil.getEmail());
+                }
+                else{
+                    console.log("Não há perfil logado.");
+                }
+            }
+        </script>
 		
 		<!-- HTML5 shim e Respond.js para suporte a elementos e media queries no IE8 -->
 		<!-- WARNING: Respond.js não funciona se tentar visualizar a página via file:// -->
@@ -81,7 +105,12 @@
                             <div id="loginImage" class="login-image"></div>
                         </div>
                         <div class="panel-body">
-                            LA CUCARACHA!
+                            <form action="" class="form-group">
+                                <input type="text" class="form-control" id="nome">
+                                <input type="text" class="form-control" id="email">
+                                <button type="button" class="form-control" onclick="storePerfil()">Cadastrar</button>
+                                <button type="button" class="form-control" onclick="getPerfil()">Recuperar</button>
+                            </form>
                         </div>
                     </div>
                     <div class="panel">

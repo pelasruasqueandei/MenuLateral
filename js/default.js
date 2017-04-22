@@ -31,7 +31,6 @@ function showNavBar(){
 $("document").ready(function(){
     $("#navbar-toggler").click(function(){
         var pos = $("#menu").css("left");
-        console.log("Navbar on: "+pos);
         if(pos != '0px'){
             showNavBar();
         }
