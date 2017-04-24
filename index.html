@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<meta charset="UTF-8">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 		
@@ -44,28 +44,8 @@
 		<script type="text/javascript" src="js/default.js"></script>
         <!-- importa o objeto perfil -->
         <script type="text/javascript" src="js/perfil.js"></script>
-        <!-- Remover isso, apenas use para testes -->
-        <script type="text/javascript">
-            function storePerfil(){
-                var nome = $("#nome").val();
-                var email = $("#email").val();
-                var perfil = new Perfil();
-                perfil.setNome(nome);
-                perfil.setEmail(email);
-                perfil.login();
-            }
-            function getPerfil(){
-                var perfil = new Perfil();
-                perfil = perfil.getLogged();
-                if(perfil != null){
-                    console.log("Nome: "+perfil.getNome());
-                    console.log("E-mail: "+perfil.getEmail());
-                }
-                else{
-                    console.log("Não há perfil logado.");
-                }
-            }
-        </script>
+        <!-- importa o objeto pontosturisticos -->
+        <script type="text/javascript" src="js/pontosturisticos.js"></script>
 		
 		<!-- HTML5 shim e Respond.js para suporte a elementos e media queries no IE8 -->
 		<!-- WARNING: Respond.js não funciona se tentar visualizar a página via file:// -->
@@ -83,45 +63,23 @@
         </button>
         <nav id="menu" class="menu-lateral">
             <ul class="menu">
-                <li class="menu-item">Item 1</li>
+                <li>
+                    <div id="item1" class="menu-item">
+                        <p>Criar rota</p>
+                    </div>
+                </li>
                 <li class="divider"></li>
-                <li class="menu-item">Item 2</li>
+                <li><div id="item2" class="menu-item"></li>
                 <li class="divider"></li>
-                <li class="menu-item">Item 3</li>
+                <li><div id="item3" class="menu-item"></li>
                 <li class="divider"></li>
-                <li class="menu-item">Item 4</li>
-                <li class="divider"></li>
-                <li class="menu-item">Item 5</li>
-                <li class="divider"></li>
-                <li class="menu-item">Item 6</li>
+                <li><div id="item4" class="menu-item"></li>
             </ul>
         </nav>
         <div class="container-fluid navbar-tabbed">
             <div class="row main-row">
                 <div class="col-md-4"></div>
-                <div class="col-md-4">
-                    <div class="panel">
-                        <div class="panel-heading center-block">
-                            <div id="loginImage" class="login-image"></div>
-                        </div>
-                        <div class="panel-body">
-                            <form action="" class="form-group">
-                                <input type="text" class="form-control" id="nome">
-                                <input type="text" class="form-control" id="email">
-                                <button type="button" class="form-control" onclick="storePerfil()">Cadastrar</button>
-                                <button type="button" class="form-control" onclick="getPerfil()">Recuperar</button>
-                            </form>
-                        </div>
-                    </div>
-                    <div class="panel">
-                        <div class="panel-heading center-block">
-                            <div id="loginImage" class="login-image"></div>
-                        </div>
-                        <div class="panel-body">
-                            LA CUCARACHA!
-                        </div>
-                    </div>
-                </div>
+                <div class="col-md-4" id="pontos-container"></div>
                 <div class="col-md-4"></div>
             </div>
         </div>

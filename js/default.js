@@ -28,8 +28,10 @@ function showNavBar(){
     },ratio);
 }
 
-$("document").ready(function(){
-    $("#navbar-toggler").click(function(){
+function addEventListeners(){
+    // Adiciona função de mostrar ou esconder menu no click do botão
+    var navtog = "#navbar-toggler";
+    $(navtog).click(function(){
         var pos = $("#menu").css("left");
         if(pos != '0px'){
             showNavBar();
@@ -37,6 +39,22 @@ $("document").ready(function(){
         else{
             hideNavBar();
         }
+        console.log("triggered click event on "+navtog);
     });
+
+    $("ul").mouseenter(function(event){
+        var id = "#"+event.currentTarget.id;
+        console.log("triggered mouseover event on "+id);
+    });
+}
+
+$("document").ready(function(){
+    // Esconde o menu lateral
     hideNavBar();
+
+    // Pega os pontos remotamente e carrega na div container de pontos.
+    pegaPontosRemotos();
+
+    // Ativa os listeners
+    addEventListeners();
 });
