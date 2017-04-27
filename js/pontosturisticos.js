@@ -11,8 +11,8 @@ function criaUmPonto(ponto){
 }
 
 function pegaPontosRemotos(){
-    var url = "http://www.compliancesoftware.com.br/console/getPontos?ret=json";
-    // var url = "http://localhost:8080/console/getPontos?ret=json";
+    // var url = "http://www.compliancesoftware.com.br/console/getPontos?ret=json";
+    var url = "http://localhost:8080/console/getPontos?ret=json";
     $.ajax({
         url: url,
         dataType: "json",

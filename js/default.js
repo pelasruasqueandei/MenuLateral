@@ -1,4 +1,5 @@
-var ratio = 15;
+var ratio = 16;
+var navShown = false;
 
 function hideNavBar(){
     var i = 0;
@@ -12,6 +13,7 @@ function hideNavBar(){
             clearInterval(hideInterval);
         }
     },ratio);
+    navShown = false;
 }
 
 function showNavBar(){
@@ -26,6 +28,14 @@ function showNavBar(){
             clearInterval(showInterval);
         }
     },ratio);
+    navShown = true;
+}
+
+function changepage(newpage){
+    if(newpage == "pontos"){
+        $("#main-container").html("<div class=\"col-md-4\" id=\"pontos-container\"></div>");
+        pegaPontosRemotos();
+    }
 }
 
 function addEventListeners(){
@@ -42,19 +52,20 @@ function addEventListeners(){
         console.log("triggered click event on "+navtog);
     });
 
-    $("ul").mouseenter(function(event){
-        var id = "#"+event.currentTarget.id;
-        console.log("triggered mouseover event on "+id);
+    // Adiciona evento de click no menu item
+    $(".menu-item").click(function(event){
+        var item = event.currentTarget.id;
+        changepage(item);
     });
 }
 
-$("document").ready(function(){
+window.onpageshow = function(){
     // Esconde o menu lateral
     hideNavBar();
 
-    // Pega os pontos remotamente e carrega na div container de pontos.
-    pegaPontosRemotos();
-
     // Ativa os listeners
     addEventListeners();
-});
+
+    // Carrega os pontos turisticos na inicialização.
+    $("#pontos").click();
+}
