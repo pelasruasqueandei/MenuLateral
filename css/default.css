@@ -48,6 +48,7 @@
 }
 
 .navbar-toggle {
+	display: block !important;
     position: absolute !important;
 	top: 0px !important;
     float: left !important;
